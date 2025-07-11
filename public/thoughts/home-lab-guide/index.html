@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Home Lab in 2024 - Max Day</title>
+    <link rel="icon" href="/images/image.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .breadcrumb {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .article-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            color: var(--accent-color);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .article-content h3 {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .code-snippet {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: #e6e6e6;
+            font-size: 0.9rem;
+        }
+
+        .quote {
+            border-left: 4px solid var(--secondary-color);
+            background-color: rgba(99, 102, 241, 0.1);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .table-of-contents {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .table-of-contents h3 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .table-of-contents a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+        }
+
+        .author-note {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-link {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .nav-link a {
+            display: block;
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link a:hover {
+            background-color: var(--dark-background);
+        }
+
+        .nav-direction {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .nav-title {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/#thoughts">Thoughts</a> / Building a Home Lab in 2024
+            </div>
+            
+            <div class="article-header">
+                <h1>Building a Home Lab in 2024</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <span>December 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>8 min read</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>Max Day</span>
+                    </div>
+                </div>
+
+                <div class="article-tags">
+                    <span class="tag">Home Lab</span>
+                    <span class="tag">Infrastructure</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">Ubuntu</span>
+                    <span class="tag">Guide</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#introduction" class="active">Introduction</a></li>
+                <li><a href="#planning">Planning</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="article">
+        <div class="container">
+            <div class="card">
+                <div class="article-content">
+                    <div class="table-of-contents">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#introduction">Why Build a Home Lab?</a></li>
+                            <li><a href="#planning">Planning Your Setup</a></li>
+                            <li><a href="#hardware">Hardware Selection</a></li>
+                            <li><a href="#networking">Network Design</a></li>
+                            <li><a href="#software">Software Stack</a></li>
+                            <li><a href="#lessons">Lessons Learned</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="introduction">
+                        <h2>Why Build a Home Lab?</h2>
+                        <p>A home lab provides hands-on experience with enterprise technologies in a controlled environment.</p>
+                        
+                        <div class="quote">
+                            <p>"The best way to learn is by doing, and a home lab gives you unlimited opportunities to experiment."</p>
+                        </div>
+                    </section>
+
+                    <section id="planning">
+                        <h2>Planning Your Setup</h2>
+                        <p>Start with clear goals and budget constraints before purchasing equipment.</p>
+                        
+                        <h3>Key Considerations</h3>
+                        <ul>
+                            <li>Available space and power requirements</li>
+                            <li>Budget for hardware and ongoing electricity costs</li>
+                            <li>Learning objectives and use cases</li>
+                            <li>Scalability and future expansion</li>
+                        </ul>
+                    </section>
+
+                    <section id="hardware">
+                        <h2>Hardware Selection</h2>
+                        <p>Choose equipment that balances performance, cost, and learning value.</p>
+                        
+                        <div class="code-snippet">
+                            <pre>
+# My current setup
+- Dell PowerEdge R720 (Ubuntu Server)
+- Cisco ASA 5505 (Firewall)
+- Ubiquiti UniFi Dream Machine (Router/AP)
+- Raspberry Pi 4 (Monitoring)
+- 24-port managed switch
+                            </pre>
+                        </div>
+                    </section>
+
+                    <section id="networking">
+                        <h2>Network Design</h2>
+                        <p>Implement proper network segmentation and security from the start.</p>
+                    </section>
+
+                    <section id="software">
+                        <h2>Software Stack</h2>
+                        <p>Focus on containerization and infrastructure as code for maintainability.</p>
+                    </section>
+
+                    <section id="lessons">
+                        <h2>Lessons Learned</h2>
+                        <p>Common pitfalls and how to avoid them in your own setup.</p>
+                        
+                        <div class="author-note">
+                            <h3>Pro Tip</h3>
+                            <p>Start small and grow gradually. It's easier to expand than to redesign everything.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="social-share">
+                    <a href="#" class="share-button">Share on Twitter</a>
+                    <a href="#" class="share-button">Share on LinkedIn</a>
+                    <a href="#" class="share-button">Copy Link</a>
+                </div>
+            </div>
+
+            <div class="navigation-links">
+                <div class="nav-link">
+                    <a href="/thoughts/c-javascript-integration">
+                        <div class="nav-direction">← Previous</div>
+                        <div class="nav-title">C & JavaScript Integration</div>
+                    </a>
+                </div>
+                <div class="nav-link">
+                    <a href="/thoughts/deno-vs-nodejs">
+                        <div class="nav-direction">Next →</div>
+                        <div class="nav-title">Deno vs Node.js</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Max Day. All Rights Reserved. • <a href="/" style="color: var(--primary-color);">Back to Projects</a></p>
+        </div>
+    </footer>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="../../main.js"></script>
+</body>
+</html>

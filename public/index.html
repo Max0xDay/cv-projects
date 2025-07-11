@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Day - Projects</title>
+    <link rel="icon" href="images/image.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <header>
+        <div class="container">
+            <img src="images/image.jpg" alt="Profile Picture" class="profile-img">
+            <h1>Max Day</h1>
+            <p class="title">Projects & Thoughts</p>
+            <div class="contact-info">
+                <a href="mailto:max28.day@gmail.com">max28.day@gmail.com</a>
+                <a href="https://cv.penguinjelly.co.za">View CV</a>
+                <a href="https://github.com/Max0xDay">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#featured" class="active">Featured Projects</a></li>
+                <li><a href="#all-projects">All Projects</a></li>
+                <li><a href="#thoughts">Thoughts</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card" onclick="window.location.href='/homebrewed-server'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Homebrewed Server</h3>
+                        <p class="project-description">Complete home lab setup with networking infrastructure.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ubuntu</span>
+                            <span class="tech-tag">Cisco</span>
+                            <span class="tech-tag">Cloudflare</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='/mqtt-automation'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">MQTT Automation System</h3>
+                        <p class="project-description">C and Node.js field automation system.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MQTT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='/cv-website'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal CV Website</h3>
+                        <p class="project-description">Three.js animated portfolio with Deno backend.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">Deno</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="all-projects">
+        <div class="container">
+            <h2 class="section-title">All Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card" onclick="window.location.href='/university-projects'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">University Projects</h3>
+                        <p class="project-description">Collection of C# and .NET applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET</span>
+                            <span class="tech-tag">Azure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='/network-monitoring'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Network Monitoring Dashboard</h3>
+                        <p class="project-description">Real-time network monitoring with Ubiquiti integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Ubiquiti</span>
+                            <span class="tech-tag">CLI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="window.location.href='/cli-tools'">
+                    <div class="project-image">
+                        Project Image Placeholder
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">CLI Automation Tools</h3>
+                        <p class="project-description">Custom Linux CLI tools and scripts.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="thoughts">
+        <div class="container">
+            <h2 class="section-title">Thoughts & Writings</h2>
+            
+            <div class="card blog-post">
+                <div class="blog-meta">January 2025 • 5 min read</div>
+                <h3>Why I Choose Deno Over Node.js</h3>
+                <p>Exploring the benefits of TypeScript-first runtime environments.</p>
+                <a href="/thoughts/deno-vs-nodejs" class="read-more">Read more →</a>
+            </div>
+
+            <div class="card blog-post">
+                <div class="blog-meta">December 2024 • 8 min read</div>
+                <h3>Building a Home Lab in 2024</h3>
+                <p>Complete guide to setting up network infrastructure.</p>
+                <a href="/thoughts/home-lab-guide" class="read-more">Read more →</a>
+            </div>
+
+            <div class="card blog-post">
+                <div class="blog-meta">November 2024 • 6 min read</div>
+                <h3>Bridging C and JavaScript</h3>
+                <p>Integrating low-level code with modern web frameworks.</p>
+                <a href="/thoughts/c-javascript-integration" class="read-more">Read more →</a>
+            </div>
+
+            <div class="card blog-post">
+                <div class="blog-meta">October 2024 • 4 min read</div>
+                <h3>CLI-First Development</h3>
+                <p>Why terminal interfaces still matter in modern development.</p>
+                <a href="/thoughts/cli-first-development" class="read-more">Read more →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About This Site</h2>
+            
+            <div class="card">
+                <p>This is my project showcase and digital workshop. Here you'll find detailed writeups of my technical projects, thoughts on development practices, and insights from my journey as a backend developer.</p>
+                
+                <p>Each project includes comprehensive documentation, code samples, and lessons learned. The thoughts section contains my perspectives on technology, development practices, and industry trends.</p>
+
+                <p>Built with Deno, TypeScript, and vanilla web technologies. Hosted on my home server infrastructure with Cloudflare tunneling.</p>
+                
+                <div class="skills">
+                    <span class="skill">Open Source</span>
+                    <span class="skill">Deno Powered</span>
+                    <span class="skill">Self Hosted</span>
+                    <span class="skill">Continuously Updated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Max Day. All Rights Reserved. • <a href="https://cv.penguinjelly.co.za" style="color: var(--primary-color);">View CV</a></p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

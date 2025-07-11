@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Choose Deno Over Node.js - Max Day</title>
+    <link rel="icon" href="/images/image.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .breadcrumb {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .article-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            color: var(--accent-color);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .article-content h3 {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin: 30px 0 15px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .code-snippet {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: #e6e6e6;
+            font-size: 0.9rem;
+        }
+
+        .quote {
+            border-left: 4px solid var(--secondary-color);
+            background-color: rgba(99, 102, 241, 0.1);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote p {
+            margin: 0;
+            font-style: italic;
+        }
+
+        .table-of-contents {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .table-of-contents h3 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .table-of-contents a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+        }
+
+        .author-note {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .share-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .share-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-link {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .nav-link a {
+            display: block;
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link a:hover {
+            background-color: var(--dark-background);
+        }
+
+        .nav-direction {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .nav-title {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/#thoughts">Thoughts</a> / Why I Choose Deno Over Node.js
+            </div>
+            
+            <div class="article-header">
+                <h1>Why I Choose Deno Over Node.js</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <span>January 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>5 min read</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>Max Day</span>
+                    </div>
+                </div>
+
+                <div class="article-tags">
+                    <span class="tag">Deno</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Runtime</span>
+                    <span class="tag">Opinion</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#introduction" class="active">Introduction</a></li>
+                <li><a href="#comparison">Comparison</a></li>
+                <li><a href="#experience">My Experience</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="article">
+        <div class="container">
+            <div class="card">
+                <div class="article-content">
+                    <div class="table-of-contents">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#introduction">Introduction</a></li>
+                            <li><a href="#security">Security by Default</a></li>
+                            <li><a href="#typescript">TypeScript First</a></li>
+                            <li><a href="#performance">Performance</a></li>
+                            <li><a href="#ecosystem">Ecosystem Maturity</a></li>
+                            <li><a href="#conclusion">Conclusion</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="introduction">
+                        <h2>Introduction</h2>
+                        <p>After years of Node.js development, I've made the switch to Deno for new projects. Here's why I believe Deno represents the future of JavaScript runtimes.</p>
+                        
+                        <div class="quote">
+                            <p>"Deno fixes the design mistakes of Node.js while maintaining JavaScript's ecosystem advantage."</p>
+                        </div>
+                    </section>
+
+                    <section id="security">
+                        <h2>Security by Default</h2>
+                        <p>Deno's permission system is a game-changer for security-conscious development.</p>
+                        
+                        <div class="code-snippet">
+                            <pre>
+// Node.js - unrestricted access
+const fs = require('fs');
+fs.readFileSync('/etc/passwd'); // Works!
+
+// Deno - explicit permissions required
+deno run --allow-read=./data script.ts
+                            </pre>
+                        </div>
+                    </section>
+
+                    <section id="typescript">
+                        <h2>TypeScript First</h2>
+                        <p>Built-in TypeScript support without complex configuration makes development faster.</p>
+                    </section>
+
+                    <section id="performance">
+                        <h2>Performance Considerations</h2>
+                        <p>Rust-based runtime with V8 optimizations provide excellent performance characteristics.</p>
+                    </section>
+
+                    <section id="ecosystem">
+                        <h2>Ecosystem Maturity</h2>
+                        <p>While smaller than Node.js, Deno's ecosystem is rapidly growing with quality-focused modules.</p>
+                    </section>
+
+                    <section id="conclusion">
+                        <h2>Conclusion</h2>
+                        <p>Deno addresses many of Node.js's fundamental issues while maintaining JavaScript's accessibility.</p>
+                        
+                        <div class="author-note">
+                            <h3>Personal Note</h3>
+                            <p>This transition has improved my development workflow and code quality significantly.</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="social-share">
+                    <a href="#" class="share-button">Share on Twitter</a>
+                    <a href="#" class="share-button">Share on LinkedIn</a>
+                    <a href="#" class="share-button">Copy Link</a>
+                </div>
+            </div>
+
+            <div class="navigation-links">
+                <div class="nav-link">
+                    <a href="/thoughts/home-lab-guide">
+                        <div class="nav-direction">← Previous</div>
+                        <div class="nav-title">Home Lab Guide</div>
+                    </a>
+                </div>
+                <div class="nav-link">
+                    <a href="/thoughts/c-javascript-integration">
+                        <div class="nav-direction">Next →</div>
+                        <div class="nav-title">C & JavaScript Integration</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Max Day. All Rights Reserved. • <a href="/" style="color: var(--primary-color);">Back to Projects</a></p>
+        </div>
+    </footer>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="../../main.js"></script>
+</body>
+</html>
