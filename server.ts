@@ -95,6 +95,14 @@ async function handler(req: Request): Promise<Response> {
     }
   }
 
+  if (pathname === "/simulations/dns-simulator") {
+    try {
+      return await serveFile(req, "./public/simulations/dns-simulator/index.html");
+    } catch {
+      return new Response("Simulation not found", { status: 404 });
+    }
+  }
+
   if (pathname.startsWith("/") && !pathname.startsWith("/public/")) {
     try {
       return await serveFile(req, `./public${pathname}`);

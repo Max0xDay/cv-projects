@@ -64,3 +64,7 @@ out/
 # Backup files
 *.bak
 *.backup
+
+public/simulations/dns-simulator/index.html
+public/simulations/dns-simulator/script.js
+public/simulations/dns-simulator/styles.css
