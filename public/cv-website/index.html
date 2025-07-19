@@ -62,16 +62,14 @@
         }
 
         .hero-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            border-radius: 15px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin: 30px 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 18px;
+            padding: 3px;
+            margin: 30px auto 30px auto;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
         }
 
         .tech-stack {
@@ -199,41 +197,10 @@
             
             <div class="project-header">
                 <h1>Personal CV Website</h1>
-                <p class="project-subtitle">Interactive Three.js portfolio with Deno backend</p>
-                
-                <div class="project-meta">
-                    <div class="meta-item">
-                        <div class="meta-label">Status</div>
-                        <div class="meta-value">Live</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Duration</div>
-                        <div class="meta-value">3 months</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Type</div>
-                        <div class="meta-value">Web Portfolio</div>
-                    </div>
-                    <div class="meta-item">
-                        <div class="meta-label">Team</div>
-                        <div class="meta-value">Solo</div>
-                    </div>
-                </div>
-
-                <div class="tech-stack">
-                    <span class="tech-item">Three.js</span>
-                    <span class="tech-item">Deno</span>
-                    <span class="tech-item">TypeScript</span>
-                    <span class="tech-item">WebGL</span>
-                    <span class="tech-item">Responsive</span>
-                    <span class="tech-item">Animation</span>
-                </div>
-
+                <p class="project-subtitle">A place to show off my background and projects</p>
                 <div class="project-links">
                     <a href="https://cv.penguinjelly.co.za" class="project-link">Live Site</a>
-                    <a href="#" class="project-link">GitHub Repository</a>
-                    <a href="#" class="project-link">Technical Blog</a>
-                    <a href="www.linkedin.com/in/max0xday" class="project-link">LinkedIn</a>
+                    <a href="https://github.com/Max0xDay/cv" class="project-link">GitHub Repository</a>
                 </div>
             </div>
         </div>
@@ -243,99 +210,34 @@
         <div class="container">
             <ul class="nav-links">
                 <li><a href="#overview" class="active">Overview</a></li>
-                <li><a href="#design">Design Process</a></li>
-                <li><a href="#technical">Technical Implementation</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#technical">Technical Stuff</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="overview">
-        <div class="container">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
             <div class="hero-image">
-                CV Website Screenshot
+                <img src="/images/cv-project.png" alt="CV Project Screenshot" style="border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.10); background:#222; display:block;" />
             </div>
-
             <div class="card">
-                <h2 class="section-title">Project Overview</h2>
-                <p>Modern, interactive CV website featuring Three.js animations and a Deno backend for optimal performance.</p>
-                
-                <div class="content-section">
-                    <h3>Objective</h3>
-                    <p>Create an engaging online presence that showcases technical skills and personality.</p>
-                </div>
-
-                <div class="content-section">
-                    <h3>Key Achievements</h3>
-                    <p>Fully responsive design with smooth animations and professional presentation.</p>
-                </div>
+                <h2 class="section-title">About This Page</h2>
+                <p>This page started off as a plain and uninteresting site that I left for months without any updates. It was originally built with Node.js, but I recently switched it to Deno and added a Three.js particle simulation in the background for some extra flair. I also finally added all my content, so now it’s a place for me to show off my background and what I’ve been up to.</p>
+                <p>It runs on my homeserver and I use Cloudflared tunneling (also called Zero Trust) to forward the page to the internet. This makes it super easy to access from anywhere without messing with router settings or exposing my network directly. Cloudflared handles the secure tunnel and keeps things simple.</p>
+                <p>Working on this taught me a lot about how static page loading works, and I ended up going down a rabbit hole about browser caching when some of my updates weren’t showing up. I’m still adding new stuff as I go, and I’m sure I’ll keep learning more as new opportunities come up.</p>
             </div>
         </div>
     </section>
-
-    <section id="design">
-        <div class="container">
-            <h2 class="section-title">Design Process</h2>
-            
-            <div class="card">
-                <div class="content-section">
-                    <h3>Visual Identity</h3>
-                    <p>Dark theme with purple gradient accents for modern tech aesthetic.</p>
-                </div>
-
-                <div class="content-section">
-                    <h3>User Experience</h3>
-                    <p>Intuitive navigation with smooth scrolling and interactive elements.</p>
-                </div>
-
-                <div class="content-section">
-                    <h3>Animation Strategy</h3>
-                    <p>Subtle Three.js particle system for engaging background motion.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="technical">
         <div class="container">
-            <h2 class="section-title">Technical Implementation</h2>
-            
+            <h2 class="section-title">Technical Stuff</h2>
             <div class="card">
-                <div class="image-gallery">
-                    <div class="gallery-image">Three.js Particles</div>
-                    <div class="gallery-image">Responsive Layout</div>
-                    <div class="gallery-image">Deno Server</div>
-                    <div class="gallery-image">TypeScript Code</div>
-                    <div class="gallery-image">Performance Metrics</div>
-                    <div class="gallery-image">Mobile View</div>
+                <div class="content-section">
+                    <p>The site is built with Deno and uses Three.js for the animated background. It's hosted on my homeserver and made public using Cloudflared tunneling, so I don’t have to open up any ports. I learned a lot about browser caching and static files while working on it. The code is on GitHub if you want to check it out or use it for your own site.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            
-            <div class="card">
-                <div class="content-section">
-                    <h3>Interactive Background</h3>
-                    <p>WebGL-powered particle system with mouse interaction.</p>
-                </div>
-
-                <div class="content-section">
-                    <h3>Responsive Design</h3>
-                    <p>Optimized for all devices with mobile-first approach.</p>
-                </div>
-
-                <div class="content-section">
-                    <h3>Performance</h3>
-                    <p>Fast loading with efficient Deno backend and optimized assets.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div class="container">
         <div class="navigation-links">
             <div class="nav-link">
