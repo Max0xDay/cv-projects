@@ -68,3 +68,6 @@ out/
 public/simulations/dns-simulator/index.html
 public/simulations/dns-simulator/script.js
 public/simulations/dns-simulator/styles.css
+
+# Unsorted project (TypeScript build outputs)
+public/unsorted/

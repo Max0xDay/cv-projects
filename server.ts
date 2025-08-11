@@ -22,7 +22,13 @@ async function handler(req: Request): Promise<Response> {
       return new Response("Project not found", { status: 404 });
     }
   }
-
+  if (pathname === "/dora-dns-simulator") {
+    try {
+      return await serveFile(req, "./public/dora-dns-simulator/index.html");
+    } catch {
+      return new Response("Project not found", { status: 404 });
+    }
+  }
   if (pathname === "/mqtt-automation") {
     try {
       return await serveFile(req, "./public/mqtt-automation/index.html");
@@ -65,7 +71,10 @@ async function handler(req: Request): Promise<Response> {
 
   if (pathname === "/thoughts/deno-vs-nodejs") {
     try {
-      return await serveFile(req, "./public/thoughts/deno-vs-nodejs/index.html");
+      return await serveFile(
+        req,
+        "./public/thoughts/deno-vs-nodejs/index.html",
+      );
     } catch {
       return new Response("Blog post not found", { status: 404 });
     }
@@ -73,7 +82,10 @@ async function handler(req: Request): Promise<Response> {
 
   if (pathname === "/thoughts/home-lab-guide") {
     try {
-      return await serveFile(req, "./public/thoughts/home-lab-guide/index.html");
+      return await serveFile(
+        req,
+        "./public/thoughts/home-lab-guide/index.html",
+      );
     } catch {
       return new Response("Blog post not found", { status: 404 });
     }
@@ -81,7 +93,10 @@ async function handler(req: Request): Promise<Response> {
 
   if (pathname === "/thoughts/c-javascript-integration") {
     try {
-      return await serveFile(req, "./public/thoughts/c-javascript-integration/index.html");
+      return await serveFile(
+        req,
+        "./public/thoughts/c-javascript-integration/index.html",
+      );
     } catch {
       return new Response("Blog post not found", { status: 404 });
     }
@@ -89,7 +104,10 @@ async function handler(req: Request): Promise<Response> {
 
   if (pathname === "/thoughts/cli-first-development") {
     try {
-      return await serveFile(req, "./public/thoughts/cli-first-development/index.html");
+      return await serveFile(
+        req,
+        "./public/thoughts/cli-first-development/index.html",
+      );
     } catch {
       return new Response("Blog post not found", { status: 404 });
     }
@@ -97,7 +115,10 @@ async function handler(req: Request): Promise<Response> {
 
   if (pathname === "/simulations/dns-simulator") {
     try {
-      return await serveFile(req, "./public/simulations/dns-simulator/index.html");
+      return await serveFile(
+        req,
+        "./public/simulations/dns-simulator/index.html",
+      );
     } catch {
       return new Response("Simulation not found", { status: 404 });
     }
@@ -116,7 +137,7 @@ async function handler(req: Request): Promise<Response> {
       JSON.stringify({ message: "Hello from Max Day's Projects Server!" }),
       {
         headers: { "Content-Type": "application/json" },
-      }
+      },
     );
   }
   return new Response("Not Found", { status: 404 });

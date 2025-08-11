@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Simulator - Max Day Projects</title>
+    <link rel="icon" href="/images/image.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .breadcrumb {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .hero-image {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 18px;
+            padding: 3px;
+            margin: 30px auto 30px auto;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .content-section {
+            margin: 40px 0;
+        }
+
+        .content-section h3 {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+
+        .navigation-links {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-link {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .nav-link a {
+            display: block;
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link a:hover {
+            background-color: var(--dark-background);
+        }
+
+        .nav-direction {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .nav-title {
+            font-weight: 600;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            background-color: var(--card-color);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .feature-description {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <header>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/#featured">Projects</a> / DNS Simulator
+            </div>
+            
+            <div class="project-header">
+                <h1>DNS Simulator</h1>
+                <p class="project-subtitle">Interactive visualization of DNS resolution process</p>
+                
+                <div class="tech-stack">
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">HTML5 Canvas</span>
+                    <span class="tech-item">CSS3</span>
+                    <span class="tech-item">Animation</span>
+                    <span class="tech-item">Networking</span>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://projects.penguinjelly.co.za/simulations/dns-simulator" class="project-link">Try the Simulator</a>
+                    <a href="https://github.com/Max0xDay/dns-simulator" class="project-link">GitHub Repository</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#overview" class="active">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#technical">Technical Details</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="overview">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="hero-image">
+                <img src="/images/dns-simulator-screenshot.png" alt="DNS Simulator Screenshot" style="border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.10); background:#222; display:block;" />
+            </div>
+            <div class="card">
+                <h2 class="section-title">About This Project</h2>
+                <p>The DNS Simulator is an interactive web application that visualizes how Domain Name System (DNS) resolution works behind the scenes. When you type a website address into your browser, a complex series of queries happen to translate that human-readable domain name into an IP address that computers can understand.</p>
+                <p>This simulator breaks down that process step-by-step, showing the journey from your initial query through recursive DNS servers, root servers, TLD servers, and finally to authoritative name servers. It's designed to help people understand one of the internet's most fundamental but often invisible processes.</p>
+                <p>I built this because DNS is something that "just works" for most people, but understanding how it works can be really valuable for anyone working with web technologies. The visual approach makes it much easier to grasp than reading through technical documentation.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="technical">
+        <div class="container">
+            <h2 class="section-title">Technical Details</h2>
+            <div class="card">
+                <div class="content-section">
+                    <h3>Implementation</h3>
+                    <p>The simulator is built with vanilla JavaScript and uses HTML5 Canvas for smooth animations. The DNS hierarchy is modeled as a state machine, where each step in the resolution process triggers the next animation sequence. I used CSS3 for the UI components and implemented custom easing functions for natural-feeling motion.</p>
+                    
+                    <h3>Architecture</h3>
+                    <p>The code is organized into modules for different parts of the DNS system - recursive resolvers, root servers, TLD servers, and authoritative servers. Each module handles its own animation logic and data flow. The main controller coordinates between these modules and manages the overall simulation state.</p>
+                    
+                    <h3>Performance Considerations</h3>
+                    <p>Since the animations run in real-time, I optimized for smooth 60fps performance using requestAnimationFrame and minimizing DOM manipulations. The canvas-based approach keeps things lightweight while still allowing for complex visual effects.</p>
+                    
+                    <h3>Future Improvements</h3>
+                    <p>I'm planning to add support for different DNS record types (AAAA, MX, CNAME), show DNSSEC validation processes, and maybe add a "debug mode" that shows packet-level details for network administrators who want to dive deeper.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="navigation-links">
+            <div class="nav-link">
+                <a href="/personal-cv-website">
+                    <div class="nav-direction">← Previous</div>
+                    <div class="nav-title">Personal CV Website</div>
+                </a>
+            </div>
+            <div class="nav-link">
+                <a href="/homebrewed-server">
+                    <div class="nav-direction">Next →</div>
+                    <div class="nav-title">Homebrewed Server</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Max Day. All Rights Reserved. • <a href="/" style="color: var(--primary-color);">Back to Projects</a></p>
+        </div>
+    </footer>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Main JavaScript -->
+    <script src="../main.js"></script>
+</body>
+</html>
